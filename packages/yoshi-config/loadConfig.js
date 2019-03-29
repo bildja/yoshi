@@ -51,6 +51,7 @@ const loadConfig = ({ validate, useCache } = { validate: false }) => {
     hooks: getConfig('hooks', {}),
     hmr: getConfig('hmr', true),
     liveReload: getConfig('liveReload', true),
+    openBrowser: getConfig('openBrowser', true),
     exports: getConfig('exports'),
     clientProjectName: getConfig('clientProjectName'),
     clientFilesPath: (() => {

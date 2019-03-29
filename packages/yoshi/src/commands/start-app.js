@@ -46,6 +46,7 @@ const Server = require('../server-process');
 const host = '0.0.0.0';
 
 const https = cliArgs.https || project.servers.cdn.ssl;
+const shouldOpenBrowser = project.openBrowser;
 
 function watchPublicFolder() {
   const watcher = chokidar.watch(PUBLIC_DIR, {
@@ -198,7 +199,11 @@ module.exports = async () => {
   }
 
   // Once it started, open up the browser
-  openBrowser(cliArgs.url || `${https ? 'https' : 'http'}://localhost:${PORT}`);
+  if (shouldOpenBrowser) {
+    openBrowser(
+      cliArgs.url || `${https ? 'https' : 'http'}://localhost:${PORT}`,
+    );
+  }
 
   return {
     persistent: true,

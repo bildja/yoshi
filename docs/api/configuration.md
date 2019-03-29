@@ -213,6 +213,12 @@ Set to `false` in order to disable hot module replacement. (defaults to true)
 
 If true, instructs the browser to physically refresh the entire page if / when webpack indicates that a hot patch cannot be applied and a full refresh is needed.
 
+### openBrowser
+
+`Boolean`
+
+Set to `false` if you don't want localhost to be opened after npm start. (defaults to true).
+
 ## performance
 
 Allows to use the Webpack Performance Budget feature.

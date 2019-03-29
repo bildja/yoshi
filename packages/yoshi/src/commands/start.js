@@ -27,6 +27,7 @@ const {
   liveReload,
   petriSpecsConfig,
   clientProjectName,
+  openBrowser: shouldOpenBrowser,
 } = require('yoshi-config');
 const globs = require('yoshi-config/globs');
 const {
@@ -155,7 +156,9 @@ module.exports = runner.command(
       ),
     ]);
 
-    openBrowser(cliArgs.url || localUrlForBrowser);
+    if (shouldOpenBrowser) {
+      openBrowser(cliArgs.url || localUrlForBrowser);
+    }
 
     if (shouldRunTests && !isProduction()) {
       crossSpawn('npm', ['test', '--silent'], {
